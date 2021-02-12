@@ -53,7 +53,6 @@ func (tx *repo) ConsultNegativacoes(data string) ([]*service.Data, error) {
 	data = strings.Replace(data, ".", "", -1)
 	data = strings.Replace(data, "-", "", -1)
 	data = strings.Replace(data, " ", "", -1)
-	log.Println(data)
 
 	query := `SELECT
 		id,
@@ -84,8 +83,6 @@ func (tx *repo) ConsultNegativacoes(data string) ([]*service.Data, error) {
 		}
 		ngs = append(ngs, ng)
 	}
-
-	log.Println(ngs)
 
 	return ngs, nil
 

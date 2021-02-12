@@ -43,9 +43,6 @@ func (h *httpServer) StartAPI() {
 	}
 }
 
-type RequestJson struct {
-}
-
 func jsonOperator(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodPost:
@@ -61,11 +58,7 @@ func jsonOperator(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		log.Println(string(body))
-
 		json.Unmarshal(body, &cpf)
-
-		log.Println(cpf.CPF)
 
 		db, err := repository.OpenConnection()
 		if err != nil {
